@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.book_img{
+	width: 300px;
+}
+
+.s2{
+	display:inline-block;
+	color: orange;
+	font-size: 40px;
+}
+
+.con{
+	background-color: #0F6878;
+	color: white;
+	padding: 20px;
+	width: 500px;
+	line-height: 150%;
+}
+
+.s1{
+	color: orange;
+	font-weight: bold;
+}

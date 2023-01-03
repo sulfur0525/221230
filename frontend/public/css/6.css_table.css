@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.fee, .fee th, .fee td{
+	border: solid 2px black;
+}
+
+.fee{
+	border-collapse: collapse;
+	color: black;
+}
+
+.fee th{
+	padding: 10px 20px;
+	background-color: #eeeeee;
+}
+
+.fee td{
+	padding: 10px;
+	text-align: center;
+}
+
+.fee .col1{width: 50px;}
+.fee .col2, .fee .col3{width: 100px;}
+.fee .col4{width: 200px;}
