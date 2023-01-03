@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<link href="과제9_table.css" rel="stylesheet">
+
+</head>
+<body>
+
+	<h4> 회원 가입 폼 </h4>
+	
+	<table class="s_in">
+		<tr> 
+			<td> 아이디 </td>
+			<td> <input class="te" type="text"> </td>
+		</tr>
+		<tr> 
+			<td> 비밀번호 </td>
+			<td> <input class="te" type="password"> </td>
+		</tr>
+		<tr> 
+			<td> 비밀번호 확인</td>
+			<td> <input class="te" type="password"> </td>
+		</tr>
+		<tr> 
+			<td> 이름 </td>
+			<td> <input class="te" type="text"> </td>
+		</tr>
+		<tr> 
+			<td> 이메일</td>
+			<td> 
+			<input class="te" type="text">@
+				<select>
+					<option> 직접입력 </option>
+					<option> 네이버 </option>
+					<option> 네이트 </option>	
+					<option> 구글 </option>
+					<option> 카카오 </option>		
+				</select>
+			</td>
+		</tr>
+		<tr> 
+			<td> 이메일 수신</td>
+			<td><input type="radio" name="email"> 비수신 
+				<input type="radio" name="email"> 수신
+			</td>
+		</tr>
+		<tr> 
+			<td> 가입경로</td>
+			<td><input type="checkbox" name="item"/> 친구추천
+				<input type="checkbox" name="item"/> 인터넷검색
+				<input type="checkbox" name="item" checked="checked"/> 기타
+			</td>
+		</tr>
+		<tr> 
+			<td class="hi"> 인사말</td>
+			<td class="text"> <textarea class="box" rows="7" cols="35" style="resize: none;"></textarea> </td>
+		</tr>
+	</table>
+	<table class="s_in">
+	<tr>
+			<td class="button">
+				<input class="bu" type="button" value="저장하기">
+				<input class="bu" type="button" value="취소하기">
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

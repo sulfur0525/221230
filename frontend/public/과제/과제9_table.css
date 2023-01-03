@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+h4{ text-align: center; }
+
+.s_in{ 
+	width : 600px; 
+	margin: 0 auto;
+	border-top: solid 2px red;
+	padding: 20px;
+}
+
+.te{
+	width: 230px;
+	height: 23px;
+}
+
+.s_in .text{
+	padding-bottom: 20px;
+}
+
+.box{
+	width: 310px;
+	height: 120px;
+}
+
+.s_in .button{
+	text-align: right;
+}
+
+.bu{
+	width: 100px;
+	height: 40px;
+}
+
+.hi{
+	vertical-align:top;  
+}
