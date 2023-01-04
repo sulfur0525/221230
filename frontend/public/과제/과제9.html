@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<link href="과제9.css" rel="stylesheet">
+
+</head>
+<body>
+
+	<h3 class="signup_title"> 회원가입 폼 </h3>
+	
+	<form class="signup_form">
+		<ul class="signup_box">
+			<li><!-- 1행 -->
+				<ul class="colums">
+					<li class="col1"> 아이디 </li>
+					<li class="col2"> <input type="text"> </li>
+				</ul>
+			</li>
+			<li><!-- 2행 -->
+				<ul class="colums">
+					<li class="col1"> 비밀번호 </li>
+					<li class="col2"> <input type="password"> </li>
+				</ul>
+			</li>
+			<li><!-- 3행 -->
+				<ul class="colums">
+					<li class="col1"> 비밀번호 확인</li>
+					<li class="col2"> <input type="password"> </li>
+				</ul>
+			</li>
+			<li><!-- 4행 -->
+				<ul class="colums">
+					<li class="col1"> 이름 </li>
+					<li class="col2"> <input type="text"> </li>
+				</ul>
+			</li>
+			<li><!-- 5행 -->
+				<ul class="colums">
+					<li class="col1"> 이메일 </li>
+					<li class="col2"> 
+						<input type="text">@
+						<select>
+							<option> 직접입력 </option>
+							<option> 네이버 </option>
+							<option> 다음 </option>
+						</select>
+					</li>
+				</ul>
+			</li>
+			<li><!-- 6행 -->
+				<ul class="colums">
+					<li class="col1"> 이메일 수신</li>
+					<li> 
+						<input type="radio"> 비수신 
+						<input type="radio"> 수신 
+					</li>
+				</ul>
+			</li>
+			<li><!-- 7행 -->
+				<ul class="colums">
+					<li class="col1"> 가입경로 </li>
+					<li> 
+						<input type="checkbox"> 친구추천
+						<input type="checkbox"> 인터넷검색
+						<input type="checkbox" checked="checked"> 기타
+					</li>
+				</ul>
+			</li>
+			<li><!-- 8행 -->
+				<ul class="colums">
+					<li class="col1 hello"> 인사말 </li>
+					<li class="col2"> <textarea></textarea></li>
+				</ul>
+			</li>
+		</ul>
+		<div class="btn_box">
+			<input type="button" value="저장하기">
+			<input type="button" value="취소하기">
+		</div>
+	</form>
+
+</body>
+</html>

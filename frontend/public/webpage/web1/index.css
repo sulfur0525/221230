@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+/*
+	웹 폰트
+	1. 기본 베이스 폰트 : 맑은 고딕, 굴림
+	2. 강조 폰트 : 외부폰트 [@font-face]
+*/
+*{border: solid 1px red;}
+
+@font-face {
+    font-family: 'FUNFLOWSURVIVORKR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/FUNFLOWSURVIVORKR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+li{list-style-type: none;}
+a{color: black;	text-decoration: none;}
+ul{ padding: 0px;}
+
+#header{ 
+	width: 1200px; /*가로*/
+	margin: 0 auto;/*중앙*/
+	display: flex; /*하위요소 가로배치*/
+	justify-content: space-between;/*양쪽 여백 없이 배치*/
+}
+
+/* 메인 메뉴 */
+.main_menu li{
+	display: inline-block; /* li 가로배치 [글머리 자동으로 사라짐]*/
+	margin-left: 80px;
+	font-family: "FUNFLOWSURVIVORKR" /*pc에 설치된 폰트만 가능*/
+}
+
+/* 상단 메뉴 */
+.top_menu{
+	text-align: right;
+	margin-top: 20px;
+}
+
+/* 대표이미지 */
+#main_img{
+	background-image: url("img/header.png");
+	height: 250px;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 20px 0px; 
+}
+
+#content{
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.side_bar{ width: 300px;}
+.main_content{ width: 900px;padding-left: 10px;}
+
+/* 사이드 바 제목 */
+.side_bar h3{ 
+	font-size: 20px;
+	color: #52BCAD;
+	background-color: #516E7F;
+	padding: 10px;
+	}
+
+/* 사이드 바 목록*/
+.side_bar li{
+	border-bottom:dotted 1px #eeeeee;
+	padding: 10px; 
+}
+
+/* 메인본문 */
+.main_content h3{
+	font-size: 20px; 
+	border-bottom: solid 1px #eeeeee;
+	padding: 15px;
+}
+
+/* 푸터 */
+#footer{
+	background-color: #2C2A29;
+	margin-top:50px;
+}
+#ft_box{
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 20px;
+}
+#ft_box li{color: white;}
+

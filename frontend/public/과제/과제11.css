@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'FUNFLOWSURVIVORKR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/FUNFLOWSURVIVORKR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* 공통 */
+li{list-style-type: none;}
+a{color: black;	text-decoration: none;}
+*{ padding: 0px; margin: 0px;}
+
+
+/*헤더*/
+#header{
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 20px;
+}
+
+.top_menu{
+	text-align: right;
+	margin: 20px;
+}
+
+.main_menu li{
+	display: inline-block;
+	margin-left: 80px;
+	font-family: "FUNFLOWSURVIVORKR";
+	padding: 15px;
+}
+
+/*이미지*/
+#main_img{
+	background-image: url("img/main1.png");
+	width: 100%;
+	height: 250px;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 20px 0px;
+}
+
+/* 본문 */
+#content{
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 50px;
+}
+
+.side_bar{width: 250px;}
+.preview1{width: 475px;}
+.preview2{width: 475px;}
+
+/* 왼쪽 */
+.bar1 h3{
+	font-size: 20px;
+	background-color: #0CA9A3;
+	color: white;
+	padding: 10px;
+}
+
+.bar1 p{ padding: 10px;}
+.bar1 form{padding: 10px;}
+.bar1 .s_i{ 
+	width: 150px; 
+	height: 25px;
+}
+.bar1 .s_b{
+	width: 40px; 
+	height:30px;
+}
+
+.bar2 h3{
+	padding: 10px;
+	border-bottom: 1px #eeeeee solid;
+	border-top: 1px black solid;
+}
+
+.bar2 li{
+	padding: 10px 15px; 
+}
+
+/*가운데*/
+.preview1{padding: 0px 30px;}
+
+.preview1 h3{
+	font-size: 15px;
+	padding: 10px;
+	border-bottom: 1px black solid;
+}
+
+.preview1 .ta{
+	display: flex;
+	justify-content: space-between;
+}
+.preview1 li{
+	padding: 4px
+}
+
+/* 오른쪽 */
+
+.preview2 h3{
+	font-size: 15px;
+	padding: 10px;
+	border-bottom: 1px black solid;
+}
+.preview2 .ta{
+	display: flex;
+	justify-content: space-around;
+	padding: 20px;
+}
+
+.preview2 img{width: 180px;}
+
+/* 푸터 */
+#footer{
+	background-color: #05354E;
+	color: white;
+	}
+#f_box{
+	width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+.an a{color: white;}
+.an li{
+	display: inline-block;
+	margin-right: 40px;
+}
+
+.infomation{
+	display: flex;
+	justify-content: space-between;
+	padding: 30px;
+}
+
+
+

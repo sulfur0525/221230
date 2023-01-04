@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+#web_box{
+	/* border: 1px red solid; */
+}
+
+#header{
+	/* border: 1px blue solid;  */
+	background-color:blue;
+	height: 200px;
+}
+
+#content{
+	/* border: 1px orange solid;  */
+	background-color:orange;
+	height: 600px;
+	width: 1200px; /* pc : 1050px~1300px */
+	margin: 0 auto;
+	display: flex;
+}
+
+#content #left_menu{
+	/* border: 1px gray solid; */ 
+	background-color:gray;
+	height: 600px;
+	width: 900px; /* 부모[상위요소] : 1200 /부모-본인 = 300px-4px = 296px */
+}
+#content #right_menu{
+	/* border: 1px purple solid;  */
+	background-color:purple;
+	height: 600px;
+	width: 300px;
+}
+
+#footer{
+	/* border: 1px black solid;  */
+	background-color:black;
+	height: 200px;
+}
