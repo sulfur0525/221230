@@ -100,10 +100,9 @@ a{color: black;	text-decoration: none;}
 .preview1 .ta{
 	display: flex;
 	justify-content: space-between;
+	padding: 8px;
 }
-.preview1 li{
-	padding: 4px
-}
+
 
 /* 오른쪽 */
 
@@ -115,6 +114,7 @@ a{color: black;	text-decoration: none;}
 .preview2 .ta{
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
 	padding: 20px;
 }
 
@@ -130,10 +130,11 @@ a{color: black;	text-decoration: none;}
 	margin: 0 auto;
 	padding: 20px;
 }
-.an a{color: white;}
-.an li{
+.top a{color: white;}
+.top li{
 	display: inline-block;
 	margin-right: 40px;
+	font-weight: bold;
 }
 
 .infomation{
