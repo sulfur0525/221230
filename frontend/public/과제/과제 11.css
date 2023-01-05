@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.parent{
+	background-color: #008000;
+	width: 700px;
+	height: 600px;
+	margin: 0 auto;
+	position: relative; /*상위요소 포지션 안쓰면 body따라감*/
+}
+
+.box1, .box2, .box3, .box4, .box5, .box6{
+	width: 100px; height: 80px;
+	background-color: yellow;
+	border-radius: 15px;
+	position: absolute;
+	text-align: center;
+}
+
+.box1{ left: 300px; top: 100px;}
+.box2{ left: 150px; top: 200px;}
+.box3{ right: 150px;top: 200px;}
+.box4{ left: 150px; bottom: 200px;}
+.box5{ right: 150px;bottom: 200px;}
+.box6{ left: 300px; bottom: 100px;}
