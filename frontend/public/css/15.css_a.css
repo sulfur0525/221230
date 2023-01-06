@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+a{
+	color: black;
+	text-decoration: none;
+}
+
+a:hover{
+	color: orange;
+}
+
+a:active {
+	color: blue;
+}
+
+a:visited {
+	color: red;
+}
+
+#header{
+	background-color: #eeeeee;
+	display: flex;
+	justify-content: center;
+}
+
+#header .drop_menu{
+	display: inline-block;
+	margin-right: 50px;
+}
+
+.drop_menu {position: relative;}
+.sub_menu{
+	position: absolute; 
+	top:20px; left: -30px;/*상위요소와 하위요소의 접점이 필요*/
+	display: none;/*숨기기*/
+	border-bottom: solid 1px #eeeeee;
+	border-left: solid 1px #eeeeee;
+	border-right: solid 1px #eeeeee;
+	width: 100px;
+	padding-top: 30px; /*상위요소와 하위요소의 여백*/
+}
+.drop_menu a{width: 200px;}
+.sub_menu a{width: 200px;}
+
+.drop_menu:hover .sub_menu{display: block;}
+
+
+
+
+
+

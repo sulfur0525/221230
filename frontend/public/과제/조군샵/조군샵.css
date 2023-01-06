@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+*{ margin: 0; padding: 0; font-family: "맑은 고딕";}
+a{ text-decoration: none; color: black; }
+li{ list-style-type: none; }
+
+{border: 1px solid black;}
+/*------------헤더-----------------------------*/
+#header{position: relative;width: 100%;}
+
+/* 탑 헤더 */
+.top_menu{
+	display: flex;
+	justify-content: flex-end;
+	border-bottom: 1px solid #dbdbdb;
+	border-top: 1px solid #dbdbdb; 
+}
+.top_box{
+	display: flex;
+	align-items: flex-start;
+	padding: 12.5px 20px;
+	font-size: 12px;
+}
+.top_menu li{
+	display: inline-block;
+	text-align: center;
+	margin: 0px 20px;
+}
+.drop_menu {position: relative;}
+.sub_menu{
+	position: absolute; 
+	display: none;/*숨기기*/
+}
+.sub_menu li{
+	margin: 0px;
+	
+}
+.drop_menu:hover .sub_menu{display: block;}
+.top_box img{ width: 20px; height: 16px;}
+
+/* 메인 헤더 */
+.main_menu{
+	display: flex;
+	align-items: center;
+}
+.logo_img img{ height: 20px;}
+.catebox{
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	font-size: 12px;
+}
+.main_menu li{
+	display: inline-block;
+	text-align: center;
+	padding: 0px 15px;
+}
+.search{}
+
+
+
+
+
