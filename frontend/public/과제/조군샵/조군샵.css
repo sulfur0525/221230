@@ -153,9 +153,11 @@ li{list-style-type: none;}
 #main{ width:100%; padding-bottom: 200px;}						/* 사이트 가로 넓이 */
 #main #hot_item_top{text-align: center; margin-top: 300px;}
 
-.hot_item{display: flex; justify-content: center; flex-wrap: wrap; font-size: 12px; }
+.hot_item{display: flex; justify-content: center; flex-wrap: wrap; font-size: 12px;}
 
 .main_heder p{color: #A2A2A2; text-align: center; font-size: 12px; padding-bottom: 17px;}
+
+.hot_item1{margin: 0 10px; margin-bottom: 120px;}
 
 .hot_item1 img{width: 370px; }
 
