@@ -22,8 +22,9 @@
 		 2. 메인 메뉴에만 sticky
 		 3. 큰 sticky는 하지 말 것
 	-->
-	<div id="header">
-		<div class="top_menu">
+	 <!-- 헤더 -->
+	
+		<div class="top_menu"> <!-- 탑 메뉴 -->
 			<ul class="top_box">
 				<li><a href="#"> LOGIN </a></li> |
 				<li><a href="#"> JOIN </a></li> |
@@ -31,16 +32,18 @@
 				<li><a href="#"> ORDER </a></li> |
 				<li><a href="#"> CART(0) </a></li> |
 				<li class="drop_menu"><a href="#">COMMUNITY</a>
-					<ul class="sub_menu">
-						<li><a href="#">Q&A1</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">이벤트</a></li>
-						<li><a href="#">당첨자발표</a></li>
-						<li><a href="#">조군스토리</a></li>
-						<li><a href="#">조군TV & 코디팁</a></li>
-						<li><a href="#">데일리룩</a></li>
-						<li><a href="#">포토리뷰</a></li>
-					</ul>
+					<div class="sub_menu">
+						<ul>
+							<li><a href="#">Q&A</a></li>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">이벤트</a></li>
+							<li><a href="#">당첨자발표</a></li>
+							<li><a href="#">조군스토리</a></li>
+							<li><a href="#">조군TV&코디팁</a></li>
+							<li><a href="#">데일리룩</a></li>
+							<li><a href="#">포토리뷰</a></li>
+						</ul>
+					</div>
 				</li> |			
 				<li><a href="#"><img src="조군샵 img/top_icon.png"> </a></li>
 			</ul>
@@ -48,12 +51,14 @@
 		
 
 		
-		<div class="main_menu">
-			<div class="logo_img">
-				<img src="조군샵 img/main_logo.png">
+		<div class="main_menu"> 	<!-- 메인 메뉴 -->
+			<div class="logo_img">	<!-- 메인 로고 -->
+				<a href="#">
+					<img src="조군샵 img/main_logo.png">
+				</a>
 			</div>
-			<div class="category">
-				<ul class="catebox">
+			<div class="category">	
+				<ul class="catebox"><!-- 메인 카테고리 -->
 					<li><a href="#"> BEST </a></li>		
 					<li id="new_red"><a href="#"> NEW~20% </a></li>
 					<li class="drop_menu"><a href="#"> MADE </a>
@@ -133,33 +138,76 @@
 					<li><a href="#"> BRAND </a></li>
 				</ul>
 			</div>
-			<div class="search">
+			<div class="search">	<!-- 메인 검색창 -->
 				<input type="text"> 
 				<img src="조군샵 img/icon_search.gif">
 			</div>
 		</div>
-	</div>
+	
 	
  	
 	<!-- 메인 이미지 
 		 1. 이미지 슬라이드 x 1개만 적용
 	-->
 	<img src="">
-	
+	이미지
 	
 	<!-- 메인 
 		 본문 hot item 2줄
 		 오른쪽 메뉴 fixed[스크롤 이벤트 X]
 	-->
 	<div id="main">
-	
+	<p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p><p>본문</p>
 	</div>
 	
 	
 	<!-- 푸터 
 		 푸터 2개
 	-->
-	<div id="footer">
+
+	<div id=ft_top>
+		<div class="ft_tbox">
+			<div class="ft_con">
+				<h4> CS CENTER </h4>
+				<h2> 1599-3120 </h2>
+				<p> MON-FRI : 10:00 ~ 17:00 <br/>					LUNCH: 13:00 ~ 14:00 <br/>
+					SAT, SUN, HOLIDAY OFF
+				</p>
+			</div>
+			<div class="ft_con">
+				<h4> DELIVERY </h4>
+				<p> 반품주소:</p>
+				<p> 경기도 부천시 길주로 347(중동) 5층 물류센터 <br/>
+					대한통운 택배 이용 
+				</p>
+			</div>
+			<div class="ft_con">
+				<h4> BANK ACCOUNT </h4>
+				<p> 예금주 : ㈜조군 </p>
+				<p> 우리 1005-601-776813 <br/>
+					농협 351-0286-8129-53 <br/>
+					기업 114-153764-04-011 <br/>
+					국민 594401-04-027446 <br/>
+					신한 140-009-662523
+				</p>
+			</div>
+			<div class="ft_con">
+				<h4> MENU </h4>
+				<ul>
+					<li><a href="#">홈</a></li>
+					<li><a href="#">이용약관</a></li>
+					<li><a href="#">개인정보처리방침</a></li>
+					<li><a href="#">쇼핑몰 이용안내</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="ft_bottom">
+		<p> 
+			㈜ 조군 | 대표 : 조안익 | 사업자 등록 번호 : 130-86-56658 | 통신판매업 신고: 제2011-경기부천-126호 | 개인정보 보호 책임자 : 조안나 <a href="#">[사업자정보확인]</a><br/>
+			E-mail : jogunshop@naver.com | 주소 : 경기도 부천시 원미구 중동 1086-2 6층 조군샵 도로명 : 경기도 부천시 길주로 347(중동) 6층 조군샵<br/>
+			ⓒ 2006. jogun All rights reserved.
+		</p>
 	</div>
 </body>
 </html>
