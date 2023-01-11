@@ -20,11 +20,12 @@ function onLogin(){//끝
 	let length = snoValue.length
 	console.log('길이 확인' + length)//확인용
 	
+	let confirm = 0;
 	//8. 길이가 0이면 학번을 입력하세요 출력
-	if(length==0){document.querySelector('.resultBox').innerHTML = '학번을 입력해 주세요.';}
+	if(snoValue==' '){document.querySelector('.resultBox').innerHTML = '학번을 입력해 주세요.';confirm++;}
 	
 	//9. 길이가 8이 아니면 8자리로 입력해주세요 출력
-	else if(length != 8){
+	else if(confirm==0 && length != 8){
 		 document.querySelector('.resultBox').innerHTML = '8자리로 입력해 주세요';
 	}
 	
