@@ -31,3 +31,5 @@ function submit(){
 	}
 	document.querySelector('.table').innerHTML = 테이블행
 }
+
+
