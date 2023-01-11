@@ -9,7 +9,7 @@ function submit(){
 	let gobValue = gob.value
 	console.log('단 : ' + danValue)//확인용
 	console.log('곱 : ' + gobValue)//확인용
-	//테이블의 첫행[제목] html 대입된 변수
+	//테이블의 첫행[제목] html 대입된 변수 //이 변수를 funtion밖에 놓으면 결과 누적되어 나옴. 
 	let 테이블행 =		'<tr>'+
 						'<th>'+'단'+'</th>'+
 						'<th>'+'*'+'</th>'+
