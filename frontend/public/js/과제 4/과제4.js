@@ -55,6 +55,38 @@ for(let i=1; i<=line-1 ; i++ ){
 console.log(output)
 
 
+let line2 = Number(prompt('과제1 입력 줄수'))
+output = ''
+for(let i=1; i<=line2*2-1 ; i++ ){  //9줄
+	if(i<=5){
+		for(let j = 1 ; j<=line2-i ; j++){
+			output += ' '
+		}
+		
+		for(let s = 1 ; s<=i*2-1 ; s++ ){
+			output += '*'
+		}
+		output += '\n'		
+	}
+	
+	else{
+		for(let j = 1 ; j<=i-5 ; j++){
+			output += ' '
+		}
+		
+		for(let j = 1 ; j<=(line*2-i)*2-1 ; j++){
+			output += '*'
+		}
+		output += '\n'
+	}
+}
+
+console.log(output)
+
+
+
+
+
 /*
 
 ////* 
