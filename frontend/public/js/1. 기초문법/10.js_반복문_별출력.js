@@ -141,6 +141,12 @@ for(let i=1; i<=s8-2 ; i++ ){
 }
 console.log(output)
 
+ 
+
+
+
+
+
 
 
 /*
