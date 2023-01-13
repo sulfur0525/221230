@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+/* *{ background-color: black;} 확인용
+*{ color: white;} 확인용 */
+.content{
+	width: 50%;
+	border: 1px solid white;
+}
