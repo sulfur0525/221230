@@ -11,16 +11,23 @@
 
 	<div class="wrap">
 		<div class = "content">
-			<h6> 관리자 페이지 </h6>
+		
+			<h6 class=관리자페이지> 관리자 페이지 </h6>
 			
-			<h6> 도서 등록</h6>
-			도서명 : <input type="text" class="bookName">
-			<button onclick="bookIn()">도서 등록</button>
+			<fieldset class=도서등록>
+				<legend> 도서 등록</legend>
+				도서명 : <input type="text" class="bookName">
+				<button onclick="bookIn()">도서 등록</button>
+			</fieldset>
 			
-			<h6> 도서 목록 현황</h6>
-			<table class = "관리자테이블">			
-			</table>
+			<fieldset class=관리자현황>
+				<legend> 도서 목록 현황</legend>
+				<table class = "관리자테이블">			
+				</table>
+			</fieldset>
 		</div>
+		
+		<hr/>
 		
 		<div class = "content">
 			<h6> 고객 페이지 </h6>

@@ -14,12 +14,10 @@ function 도서대출여부(bNum){
 관리자테이블출력()
 
 function bookIn(){
-	console.log('기능 작동 확인')
 	let bookName = document.querySelector('.bookName').value
 	if(도서목록.indexOf(bookName) != -1){ alert('존재하는 도서입니다.'); return; }
 	if(bookName.length<5 || bookName.length>10){ alert('등록할 수 없는 글자 수 입니다.'); return; } 
 	도서목록.push(bookName)
-	console.log('기능 작동 확인' + 도서목록 )
 	관리자테이블출력()
 }
 
@@ -31,14 +29,12 @@ function 관리자테이블출력(){
 					<th> 비고 </th>
 				</tr>`
 	for(let i = 0 ; i<도서목록.length ; i++){
-		console.log(대출여부(i))
 		관리자테이블 += `<tr>
 						<td>${i+1}</td> 
 						<td>${도서목록[i]}</td>
 						<td>${대출여부(i)}</td>
 						<td><button type="button" onclick="onDelete(${i})">삭제</button></td>
 					</tr>`
-	console.log('기능 작동 확인' + 관리자테이블 )
 	document.querySelector('.관리자테이블').innerHTML = 관리자테이블		
 	}	
 }
