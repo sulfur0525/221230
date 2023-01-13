@@ -51,7 +51,11 @@ function onDelete(bno){
 	관리자테이블출력()
 }
 
-
+function 버튼종류(i){
+	if(대출여부(i)=='대여중'){return '<button onclick="반납버튼( '+i+' )">반납버튼</button>'}
+	else{return '<button onclick="대여버튼( '+i+')">대여버튼</button>' }
+}
+	
 
 /*---------------------------------------------------------------*/
 //김동혁
@@ -66,13 +70,12 @@ function printTable(){
 				</tr>`
 				
 	for(let i=0 ; i<도서목록.length ; i++){
-			html += `<tr>
-						<td>${i+1}</td>
-						<td>${도서목록[i]}</td>
-						<td>${대출여부(i)}</td>
-						<td><button onclick="대여버튼( ${i} )">대여버튼</button>
-						<button onclick="반납버튼( ${i} )">반납버튼</button></td>
-					</tr>`
+			html += '<tr>'+
+						'<td>'+(i+1)+'</td>'+
+						'<td>'+도서목록[i]+'</td>'+
+						'<td>'+대출여부(i)+'</td>'+
+						'<td>'+버튼종류(i)+'</td>'+
+					'</tr>'
 		
 	}
 	
