@@ -54,6 +54,7 @@ function onDelete(bno){
 
 
 /*---------------------------------------------------------------*/
+//김동혁
 
 function printTable(){
 	console.log('table print')
