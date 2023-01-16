@@ -49,6 +49,7 @@ function onDelete(bno){
 	}
 	도서목록.splice(bno,1)
 	관리자테이블출력()
+	printTable()
 }
 
 function 버튼종류(i){
@@ -104,4 +105,5 @@ function 반납버튼(j){
 	printTable()
 	관리자테이블출력()
 }
+
 
