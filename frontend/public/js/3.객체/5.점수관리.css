@@ -3,12 +3,18 @@
 .wrap{
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
-.addBox, .listBox{
+.addBox, .listBox, .updatebox{
 	border:  1px solid black;
 	width:  40%;
 	text-align: center;
 }
-.addTable{
+.addTable, .listTable, .updateTable{
 	margin: 0 auto;
 }
+.listTable, .listTable td, .listTable th{
+	border:  1px solid black;
+	border-collapse: collapse;
+}
+.updatebox{display: none;}
