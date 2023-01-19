@@ -1,0 +1,182 @@
+@charset "UTF-8";
+@font-face{
+	font-family: 'Dabanggu';
+	src : url('img/Typo_DabangguB.woff');
+}
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Dabanggu';
+}
+/* -------------------------------------------- */
+.wrap{
+	display: flex;
+	justify-content: center;
+}
+.container{
+	width:  45%;
+	border: 1px solid #eeeeee; 
+	margin : 1%;
+}
+
+/* 고객창 ---------------------------------------------------- */
+/* 헤더(이미지/메뉴)----------------------------------------------------- */
+.kioskbox{
+	width: 100%;
+	height: 1200px;
+}
+.header img{
+	width: 100%;
+}
+.categorybox ul{
+	display: flex;
+	justify-content:space-around;
+	margin: 10px 0px;
+}
+.categorybox li{
+	display: inline-block;
+	color: #B8B8B8;
+	font-weight: 300;
+}
+.categoryselect{
+	color: red !important;/* 속성충돌시 최우선 */
+	border-bottom: 3px solid red;
+	padding-bottom: 5px;
+}
+
+/* 본문(메뉴/장바구니)------------------------------------------------------ */
+.content{
+	height: 750px;
+}
+.productbox{
+	height: 600px;
+	display: flex;
+	justify-content: flex-start;
+	align-content: flex-start;
+	flex-wrap: wrap;
+	padding: 0px 20px;
+}
+.cartbox{
+	height: 300px;
+	background-color: #F5F0ED;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.product{
+	width: 27.3%; 
+	padding: 0% 3%; 
+	height: 33%; 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.productinfo{text-align: center;}
+.p_price{color: red;}
+
+.cartcon{ padding: 20px;}
+.carttop{
+	display: flex;
+	justify-content: space-between;
+}
+.pcount{
+	background-color: red;
+	width: 30px;
+	display: inline-block;
+	border-radius: 50px;
+	text-align: center;
+	color: white;
+	font-size: 12px;
+	padding: 4px;
+}
+.ptotal{color: red; padding-left: 10px;}
+.cartbtn{
+	display: flex;
+}
+.cartbtn button{
+	width: 50%;
+	color: white;
+	font-size: 20px;
+	padding: 20px;
+	border: none;
+}
+.cancelbtn{	background-color: black;}
+.orderbtn{ background-color: red;}
+.cart_bottom{
+	display: flex;
+	margin-top: 20px;
+}
+.item{
+	width: 20%;
+	background-color: white;
+	padding: 15px;
+	margin-right: 10px;
+}
+.ititle{width: 100%; height: 50px;}
+.iprice{
+	color: red;
+	margin: 20px 0;
+}
+/* 푸터(주문하기/뒤로가기)------------------------------------------------------------- */
+
+/* 관리자 창---------------------------------------------------- */
+
+.bugerAddBox,.bugerBox,.orderBox,.salesBox{
+	margin: 20px 0px;
+	text-align: center;
+}
+.bugerAddBox span,.bugerBox span,.orderBox span,.salesBox span{
+	font-size: 30px;
+}
+ .bugerAddBox td{
+	height : 30px;
+	border: 1px solid black; 
+	border-collapse: collapse;
+	text-align: center;
+}
+.bugerAddBox input{
+	border: none;
+	height: 30px;
+	width: 90%;
+	padding-left: 10%;
+}
+.bugerAddTable button{
+	height: 30px;
+	width: 230px;
+}
+.btn{
+	border: 1px solid white !important;
+}
+.bugerTable,.orderTable,.salesTable, .bugerAddTable{ width: 100%;}
+.bugerTable, .bugerTable th, .bugerTable td,
+.orderTable, .orderTable th, .orderTable td,
+.salesTable, .salesTable th, .salesTable td
+{
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+}
+.bugerTable img{
+	width: 40px;
+}
+.time{
+	font-size: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

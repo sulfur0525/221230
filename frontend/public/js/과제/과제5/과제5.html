@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<link href="과제5.css" rel="stylesheet">
+</head>
+<body>
+
+	<div class="wrap">
+		<div class="container">
+			<div class="kioskbox">
+				<div class="header">
+					<img alt="" src="img/헤더이미지.png">
+					<div class="categorybox"></div>
+				</div>
+				
+				
+				<div class="content">
+					<div class="productbox"></div>
+					<div class="cartbox">
+						<div class="cartcon">
+							<div class="carttop">
+								<div>카트	<span class="pcount">0</span></div>
+								<div>총 주문금액<span class="ptotal">0</span></div>
+							</div>
+						<div class="cart_bottom">
+						</div>
+						</div>		
+						<div class="cartbtn">
+							<button class="cancelbtn" onclick="cancel()" type="button">취소</button>
+							<button class="orderbtn" onclick="order()" type="button">주문하기</button>
+						</div>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		<div class="container">
+			<div>
+				<div class="bugerAddBox"><span>버거 등록</span>
+					<p> 
+						등록 테스트 목록 <br>
+						*사진 확장자 안넣어도 됩니다. 버거 이름만 넣으세요.	<br>
+						1. 와퍼 		와퍼 		5000 	와퍼			<br>
+						2. 불고기와퍼 	와퍼 		5000	불고기와퍼		<br>
+						3. 치킨킹		신메뉴	10000	치킨킹		<br>
+					
+					</p>
+					<table class="bugerAddTable">
+						<tr>
+							<td>버거이름</td><td><input type="text" class="bName"></td>
+						</tr>
+						<tr>	
+							<td>카테고리</td><td><input type="text" class="bCate"></td>
+						</tr>
+						<tr>
+							<td>가격</td><td><input type="text" class="bPrice"></td>
+						</tr>
+						<tr>
+							<td>이미지</td><td><input type="text" class="bImg"></td>
+						</tr>
+						<tr>
+							<td colspan="2" class="btn"><button type="button" onclick="bAdd()">등록하기</button></td>
+						</tr>
+					
+					</table>
+				</div>
+				
+				<div class="bugerBox"><span>버거현황</span>
+					<table class="bugerTable" ></table>
+				</div>
+				
+				<div class="orderBox"><span>주문 목록</span>
+					<table class="orderTable" ></table>
+				</div>
+				
+				<div class="salesBox"><span>매출 현황</span>
+					<table class="salesTable"></table>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+
+	<script type="text/javascript" src="과제5.js"></script>
+</body>
+</html>
