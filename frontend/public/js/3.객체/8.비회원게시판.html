@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>	
+	<style type="text/css">
+		.wrap{display : flex;}
+		.box{width: 33%; border: 1px solid #eeeeee;}
+	
+	</style>
+</head>
+<body>
+	
+	
+	<div class="wrap"><!-- 기본값 : display: block; -->
+		<div class="box">
+			<h3> 글쓰기 페이지 </h3>
+			<form>
+				작성자 : 		<input type="text" 				class="bwriter"><br/>
+				비밀번호 : 	<input type="password" 			class="bpassword"><br/>
+				제목 : 		<input type="text" 				class="btitle"><br/>	
+				내용 : 		<textarea rows="10" cols="50" 	class="bcontent"></textarea>
+				<button type="button" onclick="onwrite()"> 글 등록 </button>
+			</form>
+		</div>
+		<div class="box">
+			<h3> 글목록 페이지</h3>
+			<table class="boardTable"></table>
+		</div>
+		<div class="box">
+			<h3> 글보기 페이지</h3>
+			<div class="viewbox"></div>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript" src="8.비회원게시판.js"></script>
+</body>
+</html>
