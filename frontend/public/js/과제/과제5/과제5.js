@@ -147,6 +147,7 @@ function bAdd(){
 	let bImg = document.querySelector('.bImg').value
 	
 	// 유효성 검사 
+		//이미 존재하는 버거이면 등록불가
 	let check = true; 
 	for(let i=0 ; i<bugerList.length ; i++){
 		if(bugerList[i].name==bName){
@@ -163,6 +164,8 @@ function bAdd(){
 		alert('숫자가 아닙니다. [숫자만 입력하세요]');
 		check = false;
 	}
+	
+	//버거 등록
 	if(check){
 		bugerList.push({
 			name : bName,
@@ -240,7 +243,7 @@ function order_print(){
 	
 	for(let i=0 ; i<orderList.length ; i++){
 		
-		if(orderList[i].state){state = '주문요청'}
+		if(orderList[i].state){state = '주문요청'}// 삼항 연산자 쓰면 안뻬도 됨
 		else{state = '주문완료'}
 		
 		for(let j=0 ; j<orderList[i].items.length ; j++){
@@ -258,7 +261,7 @@ function order_print(){
 	
 }
 
-function bbtn(i){
+function bbtn(i){ // 삼항 연산자 쓰면 함수로 안뻬도 됨
 	if(orderList[i].state){return 'inline';}
 	else{return 'none';}
 }

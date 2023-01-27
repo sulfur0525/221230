@@ -28,3 +28,96 @@
 /* 하단 메뉴 : 가로 수평정렬 / justify-content: space-between 사용시 width 필수!  */
 .h_bottommenu{ width: 100%; display: flex; justify-content: space-between; font-size: 12px; font-weight: bold;}
 
+/*---------------------------------*/
+@media(max-width : 1000px){
+	.item{
+	width: 46%!important;	margin: 2% !important;
+	}
+}
+@media(max-width : 500px){
+	.item{
+	width: 91%!important;	margin: 2% !important;
+	}
+}
+
+.itembox{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 5%;
+}
+
+
+.box_title{
+	text-align: center;
+	font-family: 'RixInooAriDuriR';
+	padding-top: 10%;
+	border-bottom: 2px solid #eeeeee;
+	width: 25%;
+	margin: 0 auto;
+	padding-bottom: 1%;
+}
+
+.item{
+	width: 21%;
+	margin: 2%;
+}
+
+.item img{
+	width: 100%;
+}
+.imgbox{
+	height: 350px;
+	vertical-align: baseline;;
+}
+.item :hover{
+	opacity: 0.8;
+}
+
+.item_title{
+	font-size: 14px;
+	margin: 5% 0px;
+}
+
+.item_size{
+	font-size: 13px;
+	color: #999999;
+	border-bottom: 1px solid #999999;
+	padding-bottom: 4%;
+}
+.item_price{
+	text-decoration: line-through;
+	font-size: 14px;
+	color: #999999;
+	margin-top: 3%;
+}
+
+.item_sale{
+	font-family: 'RixInooAriDuriR';
+	font-size: 17px;
+}
+
+.item_discount{
+	color: red;
+	font-size: 17px;
+	font-family: 'RixInooAriDuriR';
+}
+.item_bottom{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 3%;
+}
+.item_review{
+	font-size: 11px;
+	color: #999999;
+	text-align: right;
+}
+.item_bottom div{width: 55%;}
+
+
+
+
+
+
+
+
