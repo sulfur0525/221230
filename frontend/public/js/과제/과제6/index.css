@@ -27,18 +27,19 @@
 	background-position: center bottom;
 }
 .monbox1, .monbox2,.monbox3{
-	border : 1px solid black;
 	width: 100px;
 	height: 134px;
 	position: absolute;
-	left : 900px;
 	top: 320px;
 	background-size: 100%;
 	background-repeat: no-repeat;
-	background-image: url("img/버섯1.gif");
 	transition : all 1s;/*애니메이션*/
 	background-position: center bottom;
 }
+.monbox1{background-image: url("img/버섯1.gif");}
+.monbox2{background-image: url("img/버섯2.png");}
+.monbox3{background-image: url("img/버섯3.gif");}
+
 .hpbars{
 	width: 900px;
 	margin: 0 auto;
@@ -50,7 +51,21 @@
 	height: 50px;
 	width: 45%;
 }
-.m_hp{
+.m_hp1{
+	height: 30px;
+	width: 100%;
+	background-color: #ec0000;
+	border-radius: 10px;
+	border: 2px double #7c7c7c;
+}
+ .m_hp2{
+	height: 30px;
+	width: 100%;
+	background-color: #ec0000;
+	border-radius: 10px;
+	border: 2px double #7c7c7c;
+}
+.m_hp3{
 	height: 30px;
 	width: 100%;
 	background-color: #ec0000;
