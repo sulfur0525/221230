@@ -80,13 +80,17 @@ function mon_moving(){
 	for(let i =0 ; i<3 ; i++){
 		let rand = parseInt(Math.random()*100+1);
 		let rand2 = parseInt(Math.random()*2);
+		
 		if(rand2==1){monster[i].left += rand}
 		else{monster[i].left -= rand}
+		
 		if(monster[i].left<0){ monster[i].left=0;}
 		if(monster[i].left>900) {monster[i].left=900}
+		
 		if(i==0){monbox1.style.left =`${monster[i].left}px`}
 		else if(i==1){monbox2.style.left =`${monster[i].left}px`}
 		else{monbox3.style.left =`${monster[i].left}px`}
+		
 		logbox2.innerHTML = `<div> 몬스터좌표 : ${monster[i].left}</div>`
 	}
 }
@@ -96,6 +100,7 @@ function distance(){
 	let one =Math.abs(monster[0].left-character.left)
 	let two = Math.abs(monster[1].left-character.left)
 	let three = Math.abs(monster[2].left-character.left)
+	
 	if(Math.min(one,two,three)==two){d=1}
 	if(Math.min(one,two,three)==three){d=2}
 	if(Math.min(one,two,three)==one){d=0}
