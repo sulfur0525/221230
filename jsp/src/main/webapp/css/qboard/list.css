@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+table tr td, table tr th{
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100px;
+}
+.grid ul{
+	justify-content: center;
+}
+.grid {justify-content: center;}
+.table{
+	margin-top:40px; 
+}
