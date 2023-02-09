@@ -68,7 +68,9 @@ public class 실행 {
 			}
 			
 			System.out.println("---------마이페이지----------------");
+			System.out.println("아이디 : " + memberList.get(로그인성공).아이디);
 			System.out.println("번호\t대여목록");
+			
 			for(int i = 0 ; i<memberList.get(로그인성공).대여목록.size() ; i++) {
 				System.out.println(i+"\t"+memberList.get(로그인성공).대여목록.get(i));
 			}
