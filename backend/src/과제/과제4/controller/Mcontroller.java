@@ -55,6 +55,11 @@ public class Mcontroller {
 	
 	
 	
+	//5. 로그인한 회원정보 넘기기
+	public Member loginInfo(int num) {
+		return memberDb.get(num);
+	}
+	
 	
 	
 	
