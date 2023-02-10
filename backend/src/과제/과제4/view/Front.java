@@ -44,11 +44,11 @@ public class Front {
 		System.out.println("아이디 : "); String id = scanner.next();
 		System.out.println("비밀번호 : "); String pwd = scanner.next();
 		int result = mc.login(id, pwd);
-		if(result == 1) {
+		if(result>=0) {
 			System.out.println("[로그인 성공]");
-		}else if(result == 2) {
+		}else if(result == -1) {
 			System.out.println("[비밀번호 틀림]");
-		}else if(result == 3) {
+		}else if(result == -2) {
 			System.out.println("[아이디 틀림]");
 		}
 	}

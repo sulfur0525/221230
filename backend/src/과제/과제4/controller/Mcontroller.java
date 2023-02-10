@@ -23,11 +23,11 @@ public class Mcontroller {
 		for(int i = 0 ; i<memberDb.size() ; i++) {
 			if(id.equals(memberDb.get(i).id)) {
 				if(pwd.equals(memberDb.get(i).pwd)) {
-					return 1;//로그인 성공
-				}else {return 2;}//비밀번호 틀림
-			}else {return 3;}//아이디 틀림
+					return i;//로그인 성공 회원번호[인덱스]반환
+				}else {return -1;}//비밀번호 틀림
+			}
 		}
-		return 3;//로그인 실패
+		return -2;//로그인 실패
 	}
 
 	//3. 아이디 찾기 로직
