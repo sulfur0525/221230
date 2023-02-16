@@ -8,17 +8,19 @@ public class 실행 {
 		
 		while (true) {
 			System.out.println("------------- 계좌 관리 ---------------");
-			System.out.println("은행명	\t계좌번호\t예금액");
-			for(Account a :Account.accountDB) {
-				String bankName = "";
-				if(a.accountNumber.split("-")[0].equals("03")) {
-					bankName = "신한";
-				}else if(a.accountNumber.split("-")[0].equals("04")) {
-					bankName = "국민";
-				}else if(a.accountNumber.split("-")[0].equals("05")) {
-					bankName = "우리";
+			System.out.println("은행명	\t계좌번호\t\t예금액");
+			
+			for(Account a :Account.accountDB) {	
+				if( a instanceof Kb ) {
+					Kb kb = (Kb)a;
+					System.out.println("국민\t\t"+kb.accountNumber+"\t"+kb.accountMoney);
+				}else if( a instanceof Shinhan) {
+					Shinhan shinhan = (Shinhan) a;
+					System.out.println("신한\t\t"+shinhan.accountNumber+"\t"+shinhan.accountMoney);
+				}else if( a instanceof Woori) {
+					Woori woori = (Woori) a; 
+					System.out.println("우리\t\t"+woori.accountNumber+"\t"+woori.accountMoney);
 				}
-				System.out.println(bankName+"\t"+a.accountNumber+"\t"+a.accountMoney);
 			}
 			
 			System.out.println("메뉴 > 1.계좌생성 2.예금");
@@ -59,6 +61,16 @@ public class 실행 {
 					}
 				}
 			}else if(ch==2){
+				System.out.println("----------- 계좌 입금 -----------------");
+				System.out.println("입금할 계좌번호 :"); String accountNumber = scanner.next();
+				System.out.println("예금액 :"); int accountMoney = scanner.nextInt();
+				Account account = new Account();
+				boolean result = account.deposit(accountNumber,accountMoney);
+				if(result == true) {
+					System.out.println("입금성공");
+				}else {
+					System.out.println("입금실패");
+				}
 				
 			}
 			

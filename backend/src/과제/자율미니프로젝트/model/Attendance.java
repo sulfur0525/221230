@@ -1,11 +1,10 @@
 package 과제.자율미니프로젝트.model;
 
-import java.util.Date;
 
 public class Attendance {
 	public int ano;//<-식별자
 	public boolean attendance;
-	public Date date;
+	public String date;
 
 	public int mno;
 	public int suno;
@@ -14,7 +13,7 @@ public class Attendance {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Attendance(int ano, boolean attendance, Date date, int mno, int suno) {
+	public Attendance(int ano, boolean attendance, String date, int mno, int suno) {
 		super();
 		this.ano = ano;
 		this.attendance = attendance;

@@ -42,7 +42,6 @@ public class Account {
 	public boolean deposit(String accountNumber, int accountMoney) {
 		for(Account a : accountDB) {
 			if(!a.accountNumber.equals(accountNumber)) {
-				return false;
 			}
 			a.accountMoney+=accountMoney;
 		}
