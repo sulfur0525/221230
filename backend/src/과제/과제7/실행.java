@@ -5,18 +5,17 @@ import java.util.Scanner;
 public class 실행 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		Account account = new Account();
 		
 		while (true) {
 			System.out.println("------------- 계좌 관리 ---------------");
 			System.out.println("은행명	\t계좌번호\t예금액");
-			for(Account a :account.accountDB) {
+			for(Account a :Account.accountDB) {
 				String bankName = "";
 				if(a.accountNumber.split("-")[0].equals("03")) {
 					bankName = "신한";
 				}else if(a.accountNumber.split("-")[0].equals("04")) {
 					bankName = "국민";
-				}else if(a.accountNumber.split("-")[0].equals("04")) {
+				}else if(a.accountNumber.split("-")[0].equals("05")) {
 					bankName = "우리";
 				}
 				System.out.println(bankName+"\t"+a.accountNumber+"\t"+a.accountMoney);
@@ -37,14 +36,27 @@ public class 실행 {
 					if(result) {
 						System.out.println("------------- 계좌 생성 완료  -----------");
 						System.out.println("계좌주 : "+accountName);
-						System.out.println("계좌번호 : "+account.accountDB.get(0).accountNumber);
+						System.out.println("계좌번호 : "+Account.accountDB.get(Account.accountDB.size()-1).accountNumber);
 						System.out.println("은행 : 신한");
 					}
-					
 				}else if(ch2==2) {
-					
+					Kb kb = new Kb();
+					boolean result = kb.createAccount(accountName, accountPassword);
+					if(result) {
+						System.out.println("------------- 계좌 생성 완료  -----------");
+						System.out.println("계좌주 : "+accountName);
+						System.out.println("계좌번호 : "+Account.accountDB.get(Account.accountDB.size()-1).accountNumber);
+						System.out.println("은행 : 국민");
+					}
 				}else if(ch2==3) {
-					
+					Woori woori = new Woori();
+					boolean result = woori.createAccount(accountName, accountPassword);
+					if(result) {
+						System.out.println("------------- 계좌 생성 완료  -----------");
+						System.out.println("계좌주 : "+accountName);
+						System.out.println("계좌번호 : "+Account.accountDB.get(Account.accountDB.size()-1).accountNumber);
+						System.out.println("은행 : 신한");
+					}
 				}
 			}else if(ch==2){
 				

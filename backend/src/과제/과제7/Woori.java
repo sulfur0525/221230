@@ -13,8 +13,10 @@ public class Woori extends Account{
 	
 	@Override
 	public boolean createAccount( String accountName, String accountPassword) {
-		String accountNumber = bankCode+"-"+(Math.floor(Math.random() * 100) + 10)+
-				"-"+(Math.floor(Math.random() * 100) + 10);
+		int random1 = (int) (Math.floor(Math.random() * 90) + 10);
+		int random2 = (int) (Math.floor(Math.random() * 90) + 10);
+		String accountNumber = bankCode+"-"+random1+
+				"-"+random2;
 		Woori account = new Woori(accountNumber, accountPassword, accountName, accountMoney);
 		accountDB.add(account);
 		System.out.println("우리은행 계좌 만들어주셔서 감사합니다.");
