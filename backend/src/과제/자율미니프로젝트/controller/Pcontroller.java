@@ -22,6 +22,27 @@ public class Pcontroller extends Mcontroller{
 		return suno;
 	}
 	
+	//과목뽑기
+	public String subject(int suno) {
+		String subject = "";
+		for(Professer p : subjctDB) {
+			if(suno==p.suno) {
+				subject = p.subject;
+			}
+		}
+		return subject;
+	}
+	
+	//교수mno
+	public int pNo(int suno) {
+		int mno = -1;
+		for(Professer p : subjctDB) {
+			if(suno==p.suno) {
+				mno = p.mno;
+			}
+		}
+		return mno;
+	}
 	
 	// 1. 출석체크 
 	public boolean Attendance(String subject, String id, int attandance) {
@@ -43,7 +64,7 @@ public class Pcontroller extends Mcontroller{
 			ano = Atcontroller.attendanceList.get(Atcontroller.attendanceList.size()-1).ano+1;
 		}
 		
-		for(Student s: Stcontroller.studentList) {
+		for(Student s: Stcontroller.studentDB) {
 			if(s.mno==mno && s.suno==suno) {
 				Attendance attendance = new Attendance(ano, attand, date, mno, suno);
 				Atcontroller.attendanceList.add(attendance);
@@ -65,7 +86,7 @@ public class Pcontroller extends Mcontroller{
 			sno = Scontroller.scoreList.get(Scontroller.scoreList.size()-1).sno+1;
 		}
 		
-		for(Student s: Stcontroller.studentList) {
+		for(Student s: Stcontroller.studentDB) {
 			if(s.mno==mno && s.suno==suno) {
 				Score scores = new Score(sno, score, mno, suno);
 				Scontroller.scoreList.add(scores);
