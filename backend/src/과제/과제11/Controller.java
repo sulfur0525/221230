@@ -50,7 +50,6 @@ public class Controller {
 	}
 	//장바구니 추가
 	public boolean backet(int pno, int basket) {
-		ProductDto dto = new ProductDto(pno, basket);
 		for( ProductDto d : basketlist) {
 			if(d.getPno()== pno) {
 				if(d.getBasket()+basket>d.getPstock()) {
