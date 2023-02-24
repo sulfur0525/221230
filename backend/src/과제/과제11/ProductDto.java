@@ -1,8 +1,5 @@
 package 과제.과제11;
 
-import java.util.ArrayList;
-
-import Day15.Ex9_MVC패턴.MemberDto;
 
 public class ProductDto {
 	
