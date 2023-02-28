@@ -16,7 +16,7 @@ public class IndexView {
 			System.out.println("1.로그인 2.회원가입");
 			try {
 				int ch = scanner.nextInt();
-				if(ch==1) {}
+				if(ch==1) {login();}
 				else if(ch==2) {signup();}
 			} catch (Exception e) {
 				System.err.println("[알림] 잘못된 입력입니다.");
@@ -51,6 +51,7 @@ public class IndexView {
 		boolean result = Mcontroller.getInstence().login(mid, mpw);
 		if(result) {
 			System.out.println("[알림] 로그인 성공");
+			BoardVeiw.getInstence().index();
 		}else {
 			System.out.println("[알림] 로그인 실패");
 		}

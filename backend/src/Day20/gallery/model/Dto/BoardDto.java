@@ -5,7 +5,7 @@ public class BoardDto {
 	private int bno;
 	private String btitle;
 	private String bcontent;
-	private int bdate;
+	private String bdate;
 	private int bview;
 	private String mid;
 	private String cname;
@@ -14,7 +14,7 @@ public class BoardDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BoardDto(int bno, String btitle, String bcontent, int bdate, int bview, String mid, String cname) {
+	public BoardDto(int bno, String btitle, String bcontent, String bdate, int bview, String mid, String cname) {
 		super();
 		this.bno = bno;
 		this.btitle = btitle;
@@ -55,11 +55,11 @@ public class BoardDto {
 		this.bcontent = bcontent;
 	}
 
-	public int getBdate() {
+	public String getBdate() {
 		return bdate;
 	}
 
-	public void setBdate(int bdate) {
+	public void setBdate(String bdate) {
 		this.bdate = bdate;
 	}
 

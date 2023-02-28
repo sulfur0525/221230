@@ -11,6 +11,9 @@ public class Mcontroller {
 	
 	public int getLoginSession() {return loginSession;}
 	
+	public void setLoginSession(int loginSession) {
+		this.loginSession = loginSession;
+	}
 	// 회원가입 + 아이디 중복체크
 	public int signup(String mid,String mpw,String mname,String mphone) {
 		// 아이디 중복체크
