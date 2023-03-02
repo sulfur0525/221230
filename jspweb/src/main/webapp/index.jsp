@@ -14,6 +14,8 @@
 	 <button type="button" onclick="예제1()">예제 1 실행</button>
 	 
 	 
+	 <!-- 최신 jquery 라이브러리 -->
+	 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	 <script type="text/javascript" src="/jspweb/js/index.js"></script>
 </body>
 </html>
