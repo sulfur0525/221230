@@ -7,11 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
-
-
-	<h3>대문입니다.</h3>
 	
-	<%@ include file="footer.jsp" %>
+	<%
+		//request.getSession().invalidate();
+		request.getSession().setAttribute("login", null);
+	%>
+	
+	
+	<script type="text/javascript"> location.href="/jspweb/index.jsp" </script>
 </body>
 </html>

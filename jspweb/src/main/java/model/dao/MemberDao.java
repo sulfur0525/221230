@@ -54,4 +54,33 @@ public class MemberDao extends Dao{
 			System.out.println(e);
 		}return false;
 	}
+	
+	
+	
+	public boolean login(String mid, String mpwd) {
+		String sql = "select * from member where mid='"+mid+"' and mpwd='"+mpwd+"';";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}return false;
+	}
+	
+	public MemberDto getMember(String mid) {
+		String sql = "select * from member where mid='"+mid+"';";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				MemberDto dto = new MemberDto(rs.getInt(1), rs.getString(2), null, rs.getString(4), rs.getString(5));
+				return dto;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}return null;
+	}
 }

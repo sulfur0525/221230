@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+	<%@ include file="/header.jsp" %>
 	<h3> 모든 회원 명단 </h3>
 	<div class="memberbox">
 		
 	</div>
 
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<%@ include file="/footer.jsp" %>
 	<script type="text/javascript" src="/jspweb/js/admin/info.js"></script>
 </body>
 </html>
