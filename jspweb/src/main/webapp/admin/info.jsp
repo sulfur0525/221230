@@ -9,11 +9,12 @@
 <body>
 	<%@ include file="/header.jsp" %>
 	<h3> 모든 회원 명단 </h3>
-	<div class="memberbox">
-		
-	</div>
+	
+	<table class="mListTable" border="1">
 
-	<%@ include file="/footer.jsp" %>
-	<script type="text/javascript" src="/jspweb/js/admin/info.js"></script>
+	</table>
+	
+	<script src="/jspweb/js/admin/info.js" type="text/javascript"></script>
+	
 </body>
 </html>

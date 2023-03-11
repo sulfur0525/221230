@@ -1,8 +1,6 @@
 package controller.member;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,8 +28,11 @@ public class Mconfirm extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. 검사할 아이디 요청 
 		String mid = request.getParameter("mid");
-		boolean result = MemberDao.getInstance().idcheck(mid);
+		// 2. DAO에게 전달하고 결과 받기 
+		boolean result = MemberDao.getInstance().idCheck( mid );
+		// 3. 결과 응답 
 		response.getWriter().print(result);
 	}
 
@@ -42,19 +43,21 @@ public class Mconfirm extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
+	
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

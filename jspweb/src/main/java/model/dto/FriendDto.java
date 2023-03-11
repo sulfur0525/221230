@@ -16,11 +16,6 @@ public class FriendDto {
 		this.fto = fto;
 	}
 
-	@Override
-	public String toString() {
-		return "Frienddto [fno=" + fno + ", ffrom=" + ffrom + ", fto=" + fto + "]";
-	}
-
 	public int getFno() {
 		return fno;
 	}
@@ -44,6 +39,10 @@ public class FriendDto {
 	public void setFto(int fto) {
 		this.fto = fto;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "FriendDto [fno=" + fno + ", ffrom=" + ffrom + ", fto=" + fto + "]";
+	}
 	
 }

@@ -7,13 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<%
-		//request.getSession().invalidate();
+		// 모든 세션 지우기[초기화]
+			// request.getSession().invalidate();
+		// 특정 세션 지우기 [ 동일한 이름으로 null 대입 ]
 		request.getSession().setAttribute("login", null);
+		
 	%>
+	<script type="text/javascript">
+		location.href="/jspweb/index.jsp";
+	</script>
 	
 	
-	<script type="text/javascript"> location.href="/jspweb/index.jsp" </script>
+	
+
 </body>
 </html>
