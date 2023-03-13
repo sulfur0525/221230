@@ -1,6 +1,9 @@
 package model.dao;
 
+import java.sql.Statement;
 import java.util.ArrayList;
+
+
 
 import model.dto.MemberDto;
 
@@ -15,12 +18,21 @@ public class MemberDao extends Dao {
 	public boolean signtp( MemberDto dto ) {
 		String sql = "insert into member(mid,mpwd,memail,mimg)values(?,?,?,?)";
 		try {
-			ps = con.prepareStatement(sql);
+			ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 			ps.setString( 1 , dto.getMid() );
 			ps.setString( 2 , dto.getMpwd() );
 			ps.setString( 3 , dto.getMemail() );
 			ps.setString( 4 , dto.getMimg() );
-			ps.executeUpdate(); return true; 
+			ps.executeUpdate(); 
+			rs = ps.getGeneratedKeys();
+				// 포인트 지급 [방금 회원가입한 회원]
+			if(rs.next()) {
+				int pk = rs.getInt(1);
+				setPoint("회원가입축하", 100, pk);	
+			}
+				
+			
+			return true; 
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
@@ -68,14 +80,19 @@ public class MemberDao extends Dao {
 	}
 	// 5. 특정 회원1명 찾기 
 	public MemberDto getMember( String mid ) {
-		String sql = "select * from member where mid = ? ";
+		String sql = "select m.mno, m.mid, m.mimg, m.memail, sum(p.mpamount) as mpoint "
+				+ "from member m, mpoint p "
+				+ "where m.mno=p.mno and m.mid=? "
+				+ "group by mno;";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString( 1 , mid );
 			rs = ps.executeQuery();
 			if( rs.next() ) {	// 비밀번호 제외한 검색된 레코드1개를 dto 1개 만들기 
-				MemberDto dto = new MemberDto( 	rs.getInt(1), rs.getString(2), null, 
-						rs.getString(4), rs.getString(3) );
+				MemberDto dto = 
+						new MemberDto( 	rs.getInt(1), rs.getString(2), null, 
+						rs.getString(3), rs.getString(4) );
+				dto.setMpoint(rs.getInt(5));
 				return dto;	// 레코드1개 --> 회원1명 --> 회원dto 반환 
 			}
 		}catch (Exception e) {System.out.println(e);} 
@@ -117,6 +134,49 @@ public class MemberDao extends Dao {
 		}catch (Exception e) {System.out.println(e);} 
 		return "false";
 	}
+	
+	// 8. 포인트 함수[ 1.지급내용 2.지급개수 3.대상 ]
+	public boolean setPoint(String content , int point, int mno) {
+		String sql = "insert into mpoint(mpcomment,mpamount,mno) values( ?, ? , ? );";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString( 1 , content );
+			ps.setInt( 2 , point );
+			ps.setInt( 3 , mno );
+			ps.executeUpdate(); return true; 
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
+	
+	// 9. 회원탈퇴
+	public boolean delete(String mid, String mpwd) {
+		String sql = "delete from member where mid = ? and mpwd = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString( 1 , mid );
+			ps.setString( 2 , mpwd );
+			int cnt = ps.executeUpdate(); 
+			if(cnt == 1 ) {return true;}
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
+	
+	// 10. 회원수정
+	public boolean update(String mid, String mpwd, String newmpwd, String memail,String newmimg) {
+		String sql = "update member set mpwd = ? , memail = ? ,mimg=? where mid = ? and mpwd=?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString( 1 , newmpwd );
+			ps.setString( 2 , memail );
+			ps.setString( 3 , newmimg );
+			ps.setString( 4 , mid );
+			ps.setString( 5 , mpwd );
+			int cnt = ps.executeUpdate(); 
+			if(cnt == 1 ) {return true;}
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
+	
 }
 
 

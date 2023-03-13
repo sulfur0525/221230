@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 
 	<link href="/jspweb/css/signup.css" rel="stylesheet">
+	
 
 </head>
 <body>
@@ -54,6 +55,22 @@
 	
 	</div>
 	
+	<!-- 모달 HTML -->
+	<div class="modal_wrap">
+		<div class="modal_box">
+			<h3 class="modal_title">
+			회원가입을 축하합니다.
+				<!-- 제목이 들어가는 자리  -->
+			</h3>
+			<div class="modal_content">
+			회원가입 축하포인트 100 지급
+				<!-- 내용이 들어가는 자리  -->
+			</div>
+			<div class="modal_btns">
+				<button onclick="closeModal()" class="modal_cencel" type="button">닫기</button>
+			</div>
+		</div>
+	</div>
 	
 	
 	

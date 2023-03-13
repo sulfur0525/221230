@@ -16,12 +16,14 @@ public class MemberDto {
 	private String mpwd	;
 	private String mimg	;
 	private String memail;
-	
+	private int mpoint;
+
+
 	// 1. 이메일 전송 메소드 [ 받는사람이메일 , 받는내용 HTML ] 
 	public boolean sendEmail( String toEmail , String contentHTML ) {
 		// 1.보내는 사람의 정보 
-		String fromEmail = "네이버아이디5@naver.com";	// * 실제 계정 정보 git 올리지 말기!!!!
-		String emailPwd	= "애플리케이션 비밀번호";			// * 실제 계정 정보 git 올리지 말기!!!!
+		String fromEmail = "@naver.com";	// * 실제 계정 정보 git 올리지 말기!!!!
+		String emailPwd	= "";			// * 실제 계정 정보 git 올리지 말기!!!!
 		// 2. 호스팅 설정 [ 네이버 기준 ]
 		Properties properties = new Properties();
 		properties.put( "mail.smtp.host", "smtp.naver.com");	// gmail일경우 : smtp.gmail.com	
@@ -113,6 +115,16 @@ public class MemberDto {
 	public void setMemail(String memail) {
 		this.memail = memail;
 	}
+	
+	public int getMpoint() {
+		return mpoint;
+	}
+
+
+	public void setMpoint(int mpoint) {
+		this.mpoint = mpoint;
+	}
+
 
 	@Override
 	public String toString() {
