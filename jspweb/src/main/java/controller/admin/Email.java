@@ -39,14 +39,14 @@ public class Email extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 받을 회원 이메일 요청 
-		String memail = request.getParameter("memail");	System.out.println( "memail : "+ memail );
+		String memail = request.getParameter("memail");	
 		// 2. 인증코드 만들기 
 		String auth = "";
 		
 		for( int i = 0 ; i<6 ; i++ ) {	// 6자리 난수 생성 
 			Random random = new Random(); // 랜덤 객체 
 			auth += random.nextInt(10);	// 0~9 사이의 정수 생성 
-		};System.out.println( "auth : " + auth );
+		};
 		
 		// 3. 인증코드를 받는사람의이메일 에게 보내기 
 	 	boolean result = new MemberDto().sendEmail(memail, auth);

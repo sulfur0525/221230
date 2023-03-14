@@ -44,7 +44,6 @@ public class Find extends HttpServlet {
 				int ran = random.nextInt( ranStr.length() );
 				updatePwd += ranStr.charAt( ran );	// 난수로 생성된 인덱스의 문자1개 추출해서 대입
 			} // for end 
-			System.out.println( "updatePwd : "+ updatePwd );
 			result = MemberDao.getInstance().findpwd( mid , memail , updatePwd );
 		}
 		response.getWriter().print( result ); 
