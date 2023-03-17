@@ -123,8 +123,8 @@ public class Staff extends HttpServlet {
 		if(simg==null) {
 			simg = Dao.getInstance().selectStaff(sno).getSimg();
 		}
-		if(!ddate.contains("-")) {ddate=null;}
-		
+		if(ddate.length()==0) {ddate=null;}
+		if(dcontent.length()==0) {dcontent=null;}
 		Sdto sdto = new Sdto(sno, sname, sclass, stype, field, null, simg, ddate, dcontent);
 		System.out.println(sdto);
 		

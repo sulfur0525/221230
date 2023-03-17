@@ -253,7 +253,7 @@ function getStaff_d(){
                </tr>`
                
          r.forEach((o)=>{
-            if(o.dcontent!=null){
+            if(o.ddate!=null){
                html +=`<tr>
                         <td>${o.sno}   </td>                  
                         <td><img src="/jspweb/practice/과제1/simg/${ o.simg == null ? 'default.webp' : o.simg }"  width="50px" height="50px"/></td>

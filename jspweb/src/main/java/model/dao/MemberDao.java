@@ -177,6 +177,21 @@ public class MemberDao extends Dao {
 		return false;
 	}
 	
+	// 11. 아이디 -> 넘버
+	public int getMno(String mid) {
+		String sql = "select mno from member where mid = '"+mid+"';";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}return 0;
+				
+	}
+	
 }
 
 
