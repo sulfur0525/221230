@@ -12,7 +12,7 @@ public class PageDto {
 	private int startbtn;
 	private int endbtn;
 	
-	ArrayList<BoardDto> boardList ;
+	ArrayList<BoardDto> boardList;
 	
 	public PageDto() {
 		// TODO Auto-generated constructor stub

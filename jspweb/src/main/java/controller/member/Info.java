@@ -13,8 +13,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import model.dao.BoardDao;
 import model.dao.MemberDao;
 import model.dto.MemberDto;
+import model.dto.MemberPageDto;
 
 @WebServlet("/member")
 public class Info extends HttpServlet {
@@ -92,11 +94,31 @@ public class Info extends HttpServlet {
     
     // 2. 회원1명 / 회원 여러명 호출 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String key = request.getParameter("key"); 
+		String keyword = request.getParameter("keyword"); 
+		
+		int page = Integer.parseInt(request.getParameter("page")); 
+		int listsize = Integer.parseInt(request.getParameter("listsize"));
+		int startrow = (page-1)*listsize;
+		
+		//int totalsize = BoardDao.getInstance().gettotalsize();
+		int totalsize = MemberDao.getInstance().gettotalsize(key,keyword);
+		int totalpage = totalsize%listsize==0 ? totalsize/listsize : totalsize/listsize+1;
+		
+		int btnsize = 5;
+		int startbtn = ((page-1)/btnsize)*5+1;
+		int endbtn = startbtn+(btnsize-1);
+		if(endbtn>totalpage) {
+			endbtn = totalpage;
+		}
+		
 		// 1. Dao 에게 모든 회원명단 요청후 저장 
-		ArrayList<MemberDto> result = MemberDao.getInstance().getMemberList();	
+		ArrayList<MemberDto> result = MemberDao.getInstance().getMemberList(startrow,listsize,key,keyword);	
+		MemberPageDto dto = new MemberPageDto(page, listsize, startrow, totalsize, totalpage, btnsize, startbtn, endbtn, result);
+		
 		// 2. JAVA객체 ---> JS객체 형변환 [ 서로 다른 언어 사용하니까 ]
 		ObjectMapper mapper = new ObjectMapper();
-		String jsonArray = mapper.writeValueAsString( result );					
+		String jsonArray = mapper.writeValueAsString( dto );					
 		// 3. 응답 
 		response.setCharacterEncoding("UTF-8");			// 응답 데이터 한글 인코딩 
 		response.setContentType("application/json");	// 응답 데이터 타입

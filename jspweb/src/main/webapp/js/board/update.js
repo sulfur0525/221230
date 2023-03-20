@@ -14,7 +14,7 @@ function getBoard(){
 			
 			document.querySelector('.btitle').value=r.btitle;
 			document.querySelector('.bcontent').value=r.bcontent;
-			document.querySelector('.oldbfile').innerHTML=r.bfile;
+			
 			
 			let cnoSelect = document.querySelector('.cno');
 				console.log( cnoSelect ); // select 
@@ -26,12 +26,17 @@ function getBoard(){
 					cnoSelect.options[i].selected = true;
 				}
 			}
-
+			let html = ''
 			if(r.bfile == null){
-				
+				html += `첨부파일 없음 <br>`
 			}else{
-				
+				html += `기존 첨부파일 : <span class="oldbfile"></span> 
+				<button type="button" onclick="bfiledelete(${bno})">삭제</button><br>`
 			}
+			html += `변경할 첨부파일 : <input type="file" class="bfile" name="bfile"> <br>`
+			
+			document.querySelector('.bfilebox').innerHTML = html;
+			document.querySelector('.oldbfile').innerHTML=r.bfile;
 		}
 	})
 }
@@ -53,13 +58,29 @@ function bupdate(){
 			console.log( r );
 			if( r == 'true'){
 				alert('수정성공')
-				location.href="/jspweb/board/view.jsp?cno="+bno;
+				location.href="/jspweb/board/view.jsp?bno="+bno;
 			}else{ alert('수정실패') }
 		}
 	})
 }
 
-
+function bfiledelete(bno){
+	alert('첨부파일 삭제')
+	$.ajax({
+		url: "/jspweb/board/reply",
+		method : "delete",
+		data : {"type":2 , "bno":bno} ,
+		success : (r)=>{
+			console.log('ajax통신');
+			console.log( r );
+			if(r=='true'){
+				$(".bfilebox").load(location.href+' .bfilebox') //부분렌더링 
+			}else{
+				
+			}
+		}
+	})
+}
 
 
 

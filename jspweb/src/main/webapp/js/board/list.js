@@ -9,6 +9,13 @@ let pageObject = {
 	'listsize' :3
 };
 
+let cnameHTML ='';
+if( pageObject.cno == 1 ){ cnameHTML ='공지사항'; }
+if( pageObject.cno == 2 ){ cnameHTML ='커뮤니티'; }
+if( pageObject.cno == 3 ){ cnameHTML ='QnA'; }
+if( pageObject.cno == 4 ){ cnameHTML ='노하우'; }
+document.querySelector('.cname').innerHTML = cnameHTML
+
 
 getBoardList(1)
 function getBoardList(page){
@@ -18,50 +25,51 @@ function getBoardList(page){
 		method : "get",
 		data : pageObject ,
 		success : (r)=>{
-			console.log('ajax통신');
-			console.log( r );	// 응답 결과 데이터 확인 
-			// 1. 응답데이터 처리 
-				// 1. 테이블 헤더 구성 
-			let html = `<tr>
-							<th width="10%"> 번호 </th>
-							<th width="30%"> 제목 </th>
-							<th width="20%"> 작성일 </th>
-							<th width="10%"> 조회수 </th>
-							<th width="10%"> 좋아요 </th>
-							<th width="10%"> 싫어요 </th>
-							<th width="10%"> 작성자 </th>
-						</tr>`
-			r.boardDto.forEach( (o,i) =>{
-				// 2. 테이블 내용물 추가 구성 
-												// 만약에 회원 mimg 프로필이미지가 null 이면 기본프로필 사용 / 아니면 mimg 사용 
-				html +=	`<tr>
-							<td> ${ o.bno } </td>
-							<td><a href="/jspweb/board/view.jsp?bno=${o.bno}"> ${ o.btitle } </td>
-							<td> ${ o.bdate } </td>
-							<td> ${ o.bview } </td>
-							<td> ${ o.bup } </td>
-							<td> ${ o.bdown } </td>
-							<td> ${ o.mid } </td>
-						</tr>`
-			} ); // for end 
-				// 3. 구성된html를 table 대입 
+			console.log('통신'); console.log(r);
+			
+			// --------------------- 테이블 출력  ----------------------- //
+			let html = ``;
+			
+			r.boardList.forEach( ( o , i ) => {
+				html += `
+						<div class="boardcontent">
+							<div>
+								<img src="/jspweb/member/pimg/${ o.mimg == null ? 'default.webp' : o.mimg }" class="hpimg">
+								<span class="mid"> ${o.mid} </span>
+								<span class="bdate"> ${o.bdate} </span>
+							</div>
+							<div class="btitle"><a href="/jspweb/board/view.jsp?bno=${o.bno}"> ${o.btitle} </a></div>
+							<div class="contentbottom">
+								<span> <i class="far fa-eye"></i> <span class="bview">${o.bview}</span> </span>
+								<span> <i class="far fa-thumbs-up"></i> <span class="bup">${o.bup}</span> </span>
+								<span> <i class="far fa-thumbs-down"></i> <span class="bdown">${o.bdown}</span> </span>
+								<span> <i class="far fa-comment-dots"></i> <span class="rcount">${o.rcount} </span> </span>
+							</div>
+						</div>`;
+			})
 			document.querySelector('.boardTable').innerHTML = html;
-			
-			html = '';
-			html += page<=1 ? ` <button onclick="getBoardList(${page})" type="button"> 이전 </button> ` : 
-			` <button onclick="getBoardList(${page-1})" type="button"> 이전 </button> ` 
-			
-			for(let i = r.startbtn ; i<=r.endbtn ; i++ ){
-				html += ` <button onclick="getBoardList(${i})" type="button"> ${i} </button> ` 
-			};
-			
-			html += page >= r.totalpage ? ` <button onclick="getBoardList(${page})" type="button"> 이전 </button> ` :
-			` <button onclick="getBoardList(${page+1})" type="button"> 다음 </button> ` 
-			
+			// -------------------- 페이징 버튼 출력 --------------------- //
+			html = ''; // 기존에 들어있던 내용 제거 
+			// 이전 [ 만약에 현재 페이지가 1 이하 이면 이전페이지 없음 ]
+			html += page <= 1 ?
+					`<button onclick="getBoardList(${ page })" type="button" class="pagebtn"> < </button>`
+					:
+					` <button onclick="getBoardList(${ page-1 })" type="button" class="pagebtn"> < </button> `
+			// 페이징 번호 버튼 들 
+			for( let i = r.startbtn ; i<=r.endbtn ; i++ ){ // 시작버튼번호 부터 마지막버튼번호 까지 버튼 생성 
+				html += `
+					<button onclick="getBoardList(${i})" type="button" class="pagebtn"> ${i} </button>
+					`
+			}
+			// 다음 [ 만약에 현재 페이지가 총페이지수 이상이면 다음페이지 없음 ]
+			html += page >= r.totalpage ?
+					`<button onclick="getBoardList(${ page })" type="button" class="pagebtn"> > </button>`
+					:
+					`<button onclick="getBoardList(${ page+1 })" type="button" class="pagebtn" > > </button>`
 			document.querySelector('.pagebox').innerHTML = html;
-			
-			document.querySelector('.seachcount').innerHTML = `총 게시물 수 : ${r.totalsize}`;
-		}
+			// -------------------- 게시물수 출력  --------------------- //
+			document.querySelector('.seachcount').innerHTML = `게시물 수 : ${ r.totalsize } `
+		} // success end 
 	})
 }
 

@@ -149,20 +149,26 @@ public class Board extends HttpServlet {
 
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int type = Integer.parseInt(request.getParameter("type"));
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		
 		String bfile = BoardDao.getInstance().getBoard(bno).getBfile();
 		
-		boolean result = BoardDao.getInstance().bdelete(bno);
+		boolean result = true;
 		
-		//파일삭제
-		if(result) {
-			String path = request.getSession().getServletContext().getRealPath("/board/bfile/"+bfile);
-			File file = new File(path);
-			if(file.exists()) {
-				file.delete();
-			}
+		if(type==1) {
+			result = BoardDao.getInstance().bdelete(bno);
+		}else if(type==2) {
+			result = BoardDao.getInstance().bfileupdate(bno);
 		}
+		//파일삭제
+			if(result) {
+				String path = request.getSession().getServletContext().getRealPath("/board/bfile/"+bfile);
+				File file = new File(path);
+				if(file.exists()) {
+					file.delete();
+				}
+			}
 		response.getWriter().print(result);
 	}
 

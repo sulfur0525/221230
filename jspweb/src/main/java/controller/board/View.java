@@ -28,19 +28,35 @@ public class View extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int type = Integer.parseInt(request.getParameter("type"));
-		int bno = Integer.parseInt(request.getParameter("bno"));
-		
-		String ip = request.getRemoteAddr();
-		Object o = request.getSession().getAttribute(bno+type+ip);
-		if(o==null) {
-			request.getSession().setAttribute(bno+type+ip, 1);
-			request.getSession().setMaxInactiveInterval(60*60*24);
-			
-			
-			boolean result = BoardDao.getInstance().bIncrease(type, bno);
-			response.getWriter().print(result);
-		}
+		// 1. 타입과 게시물번호 요청 
+				int type = Integer.parseInt( request.getParameter("type") );	System.out.println( type );
+				int bno = Integer.parseInt( request.getParameter("bno") );		System.out.println( bno );
+				
+				System.out.println(type+"/"+bno);
+				/*
+				 	- 하루에 한번씩 조회수 또는 좋아요수 또는 싫어요수 증가 가능 
+				 	- 회원별 vs pc별
+				 	- 세션 사용  
+				 */
+				// 1. pc 네트워크 식별자[ ip ]
+					// 1. java에서 현재 요청한 클라이언트의 ip 확인 
+				String ip = request.getRemoteAddr();
+					System.out.println( "ip: " + ip);
+					
+				// 4. 만약에 기존 세션이 없으면 증가가능 있으면 증가불가
+				Object o = request.getSession().getAttribute(type + ip + bno );
+				if( o == null ) { // 세션[ bno+type+ip ]이 생성된 적이 없다.
+					// 2. 세션 생성 [ bno+type+ip ]
+					request.getSession().setAttribute( type + ip + bno , 1 );
+					// 3. 세션 생명주기[ 생명주기 지나면 자동으로 메모리 삭제 / 초 단위 ]
+						// 1. 세션 초기화 되는 기준 
+							// 1. 서버 끄면 2.서버 다시 켰을때 3.MaxInactiveInterval 설정한 시간이 지났을떄
+							// 4. .invalidate() 5.setAttribute( "세션명" , null )
+					request.getSession().setMaxInactiveInterval( 60*60*24 ); // 하루
+					
+					// 2. Dao 처리 
+					BoardDao.getInstance().bIncrease( type , bno );
+				} // if end 
 		
 	}
 

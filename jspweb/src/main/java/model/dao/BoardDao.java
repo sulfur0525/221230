@@ -3,6 +3,7 @@ package model.dao;
 import java.util.ArrayList;
 
 import model.dto.BoardDto;
+import model.dto.ReplyDto;
 import practice.day03.board;
 
 public class BoardDao extends Dao {
@@ -49,9 +50,9 @@ public class BoardDao extends Dao {
 		ArrayList<BoardDto> list = new ArrayList<>();
 		String sql = "";
 		if(key.equals("")&&keyword.equals("")) {
-			sql = "select b.*, m.mid from board b natural join member m where b.cno="+cno+" limit ? , ?;";
+			sql = "select b.*, m.mid, m.mimg,(select count(*) from reply where bno=b.bno)as rcount from board b natural join member m where b.cno="+cno+" limit ? , ?;";
 		}else {
-			sql = "select b.*, m.mid from board b natural join member m where "+key+" like '%"+keyword+"%' and b.cno = "+cno+" order by b.bdate desc limit ? , ?;";
+			sql = "select b.*, m.mid, m.mimg,(select count(*) from reply where bno=b.bno)as rcount from board b natural join member m where "+key+" like '%"+keyword+"%' and b.cno = "+cno+" order by b.bdate desc limit ? , ?;";
 		}
 		try {
 			ps = con.prepareStatement(sql);
@@ -61,7 +62,8 @@ public class BoardDao extends Dao {
 			while (rs.next()) {
 				BoardDto boardDto = new BoardDto(rs.getInt(1), rs.getString(2), rs.getString(3), 
 									rs.getString(4), rs.getString(5), rs.getInt(6), 
-									rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10),rs.getString(11));
+									rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10),rs.getString(11),
+									rs.getString(12),rs.getInt(13));
 				list.add(boardDto);
 			}return list;
 		} catch (Exception e) {
@@ -131,4 +133,53 @@ public class BoardDao extends Dao {
 			System.out.println(e);
 		}return false;
 	}
+	
+	public boolean bfileupdate(int bno) {
+		String sql = "update board set bfile=null where bno = "+bno+";";
+		try {
+			ps = con.prepareStatement(sql);
+			int cnt = ps.executeUpdate();
+			if(cnt == 1) {
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}return false;
+	}
+	
+	public boolean rwrite(ReplyDto dto) {
+		try {
+			String sql ="";
+			if( dto.getRindex() == 0 ) { // 상위댓글
+				 sql = "insert into reply(rcontent,mno,bno)values(?,?,?)";
+			}else { // 하위댓글 
+				 sql = "insert into reply(rcontent,mno,bno,rindex)values(?,?,?,?)";
+			}
+			ps = con.prepareStatement(sql);	ps.setString( 1, dto.getRcontent() );
+			ps.setInt( 2, dto.getMno() );	ps.setInt( 3, dto.getBno() );
+			
+			// 하위댓글
+			if( dto.getRindex() !=0 ) ps.setInt( 4 , dto.getRindex() );
+			
+			ps.executeUpdate(); return true ;	
+			
+		}catch (Exception e) {System.out.println(e);	} return false;
+	}
+	
+	public ArrayList<ReplyDto> getReplyList(int rindex,int bno) {
+		ArrayList<ReplyDto> list = new ArrayList<>();
+		String sql = "select r.*,m.mid,m.mimg from reply r natural join member m where r.bno="+bno+" and r.rindex="+rindex+";";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				ReplyDto dto = new ReplyDto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
+								rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getString(8));
+				list.add(dto);
+			}return list;
+		} catch (Exception e) {
+			System.out.println(e);
+		}return null;
+	}
+	
 }

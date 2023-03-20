@@ -37,11 +37,19 @@ public class MemberDao extends Dao {
 		return false;
 	}
 	// 2. 모든 회원 호출 [ 관리자기준  인수:x 반환:모든회원들의 dto ]
-	public ArrayList<MemberDto> getMemberList( ){
+	public ArrayList<MemberDto> getMemberList(int startrow, int listsize ,String key,String keyword){
 		ArrayList<MemberDto> list = new ArrayList<>(); // 모든 회원들의 리스트 선언 
-		String sql = "select * from member";			// 1.SQL 명령어 작성 
+		String sql = "";// 1.SQL 명령어 작성 
+		if(key.equals("")&&keyword.equals("")) {
+			sql = "select * from member m limit ? , ?;";
+		}else {
+			sql = "select * from member m where "+key+" like '%"+keyword+"%' order by m.mno limit ? , ?;";
+		}
+		
 		try {
-			ps = con.prepareStatement(sql);				// 2. 연결된 con 에 SQL 대입해서 ps 
+			ps = con.prepareStatement(sql);				// 2. 연결된 con 에 SQL 대입해서 ps
+			ps.setInt(1, startrow);
+			ps.setInt(2, listsize);
 			rs = ps.executeQuery();						// 3. SQL 실행후 결과 RS 담고 
 			while( rs.next() ) {						// 4. rs.next() : 다음레코드 [ t / f ]
 				MemberDto dto = new MemberDto(			// 5. 레코드1개 --> dto 1개 생성 
@@ -192,6 +200,26 @@ public class MemberDao extends Dao {
 				
 	}
 	
+	
+	// 12. 
+	public int gettotalsize(String key,String keyword) {
+		String sql ="";
+		if(key.equals("")&&keyword.equals("")) {
+			sql = "select count(*) from member m;";
+		}else {
+			sql = "select count(*) from member m where "+key+" like '%"+keyword+"%'order by m.mno;";
+		}
+		
+		try {
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}return 0;
+	}
 }
 
 

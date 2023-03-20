@@ -1,5 +1,8 @@
 package model.dto;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class BoardDto {
 
 	private int bno ; 		
@@ -15,6 +18,7 @@ public class BoardDto {
 	//  추가 필드 --> 작성자 id 
 	private String mid;
 	private String mimg;
+	private int rcount;
 	// 1. 생성자 [ 빈생성자 ] : 사용할 용도가 적음 
 	public BoardDto() {}
 	// 2. 생성자 [ 풀생성자 ] 
@@ -60,6 +64,38 @@ public class BoardDto {
 	
 	
 	
+	public BoardDto(int bno, String btitle, String bcontent, String bfile, String bdate, int bview, int bup, int bdown,
+			int mno, int cno, String mid, String mimg, int rcount) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.bdate = bdate;
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		String now = sdf.format(date);
+		
+		if(now.split(" ")[0].equals(bdate.split(" ")[0])) {
+			this.bdate = bdate.split(" ")[1];
+		}else {
+			this.bdate = bdate.split(" ")[0];
+		}
+		this.bview = bview;
+		this.bup = bup;
+		this.bdown = bdown;
+		this.mno = mno;
+		this.cno = cno;
+		this.mid = mid;
+		this.mimg = mimg;
+		this.rcount = rcount;
+	}
+	public int getRcount() {
+		return rcount;
+	}
+	public void setRcount(int rcount) {
+		this.rcount = rcount;
+	}
 	public BoardDto(int bno, String btitle, String bcontent, String bfile, int cno) {
 		super();
 		this.bno = bno;
@@ -76,6 +112,15 @@ public class BoardDto {
 		this.bcontent = bcontent;
 		this.bfile = bfile;
 		this.bdate = bdate;
+			Date date = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			String now = sdf.format(date);
+			
+			if(now.split(" ")[0].equals(bdate.split(" ")[0])) {
+				this.bdate = bdate.split(" ")[1];
+			}else {
+				this.bdate = bdate.split(" ")[0];
+			}
 		this.bview = bview;
 		this.bup = bup;
 		this.bdown = bdown;
