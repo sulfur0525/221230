@@ -10,13 +10,27 @@
 <body>
 	<%@ include file = "/header.jsp" %>	<!-- JSP 페이지 포함 -->
 	
-	<div class="container">		
+	<div class="container cattingwrap">
+		<div class="connectlistbox">
+			<!-- <div class="connectbox">
+				<div> <img src="/jspweb/member/pimg/default.webp" class="hpimg"></div>
+				<div class="name">강호동</div>
+			</div> -->
+		</div>
+	
+			
 		<div class="cattingbox">	<!--  채팅 구역 -->		
 			<div class="contentbox"> <!-- 채팅창  -->
 			</div>			
 			<!--  form-control : bs -->
-			<textarea class=" msgbox" rows="" cols="" onkeyup="enterkey()"></textarea>			
+			<textarea class=" msgbox" rows="" cols="" onkeyup="enterkey()"></textarea>		
+				
 			<div class="cattingbtnbox">
+				
+				<button class="emobtn" type="button" data-bs-toggle="dropdown"><i class="far fa-smile"></i></button>
+				
+				<div class="dropdown-menu emolist">
+				</div>
 				<button class="sendbtn" type="button" onclick="보내기()">보내기</button>
 			</div>
 		</div>

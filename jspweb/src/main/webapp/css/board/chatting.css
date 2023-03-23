@@ -1,7 +1,23 @@
 @charset "UTF-8";
+.cattingwrap{
+	display: flex;
+	justify-content: center;
+	
+}
+.connectlistbox{
+	width: 200px;
+	height: 700px;
+}
+.connectbox{
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.connectbox .name{
+	margin-left: 10px;
+}
 .cattingbox{ /* 채팅 전체 구역 */
-	width: 300px;;
-    margin: 50px auto;
+	width: 500px;
 }
 .contentbox{	/* 채팅 정보가 출력되는 구역 */
 	background-color: #bacee0;
@@ -65,7 +81,8 @@
 }
 .cattingbtnbox{
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
+	
 }
 .sendbtn{
 	padding : 10px;
@@ -74,3 +91,40 @@
 	border: none;
 	border-radius: 5px;
 }
+.emobtn{
+	border: none;
+	background-color: transparent;
+	padding: 5px 10px;
+	font-size: 20px; 
+}
+.emolist{
+	width: 300px;
+	height: 300px;
+	overflow-y:scroll; 
+}
+.emocontent{
+	background: transparent !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
