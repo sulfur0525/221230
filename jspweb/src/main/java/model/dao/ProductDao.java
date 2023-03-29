@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import model.dto.ChatDto;
 import model.dto.ProductDto;
 
 public class ProductDao extends Dao{
@@ -103,5 +104,60 @@ public class ProductDao extends Dao{
 		} catch (Exception e) {
 			System.out.println(e);
 		}return false;
+	}
+	
+	public boolean setChat(ChatDto dto) {
+		String sql = "insert into note(ncontent, pno, frommno, tomno) values(?,?,?,?)";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getNcontent());
+			ps.setInt(2, dto.getPno());
+			ps.setInt(3, dto.getFrommno());
+			ps.setInt(4, dto.getTomno());
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+	
+	
+	//6
+	public synchronized ArrayList<ChatDto> getChatList(int mno,int pno, int chatmno) {
+		ArrayList<ChatDto> list = new ArrayList<>();
+		
+		String sql = "";
+		
+		if(chatmno != 0) {
+			sql = " select * from note where pno = ? and (( frommno = ? and tomno = ? )or( frommno = ? and tomno = ? ))";
+		}else {
+			sql = " select * from note where pno = ? and ( frommno = ? or tomno = ? )";
+		}
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt( 1 , pno );	
+			if(chatmno != 0) {
+				ps.setInt( 2 , mno );	ps.setInt( 3 , chatmno ); ps.setInt( 4 , chatmno );	ps.setInt( 5 , mno );
+			}else {
+				ps.setInt( 2 , mno );	ps.setInt( 3 , mno );
+			}
+			rs = ps.executeQuery();
+			while( rs.next() ) {
+				ChatDto dto =  new ChatDto( 	rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
+						rs.getInt(5), rs.getInt(6));
+				// 보낸회원의 정보 호출 
+				sql ="select mid , mimg from member where mno = " + rs.getInt(5);	// rs.getInt(5) = frommno
+				ps = con.prepareStatement(sql);
+				ResultSet rs2 = ps.executeQuery();
+				if( rs2.next() ) { 
+					dto.setFromid( rs2.getString(1) );
+					dto.setFrommig( rs2.getString(2));
+				}
+				list.add(  dto  );
+			}
+		}catch (Exception e) { 	System.out.println(e); 	}  
+		return list;
 	}
 }

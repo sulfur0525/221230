@@ -49,6 +49,43 @@ function getLogin(){
 	})
 }
 
+let 알림용소켓 = null;
+if(memberinfo.mid == null){
+	
+}else{
+	알림용소켓 = new WebSocket('ws://192.168.17.9:8080/jspweb/alarm/'+memberinfo.mid)
+	알림용소켓.onopen=(e)=>{console.log('알림용 서버 소켓에 들어옴')}
+	알림용소켓.onclose=(e)=>{console.log('알림용 서버 소켓에서 나감')}
+	알림용소켓.onerror=(e)=>{console.log('알림용 서버 소켓 오류')}
+	알림용소켓.onmessage=(e)=>{onalarm(e)}
+}
+
+function onalarm(e){
+	let msgbox = document.querySelector('.msgbox')
+	msgbox.style.bottom = "50px";
+	
+	setTimeout(()=>{msgbox.style.bottom ="-100px"},4000)
+	
+	getcontent()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
