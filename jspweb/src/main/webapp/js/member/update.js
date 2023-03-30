@@ -30,7 +30,7 @@ function setUpdate(){
 			console.log( r );
 			if( r == 'true'){
 				alert('회원수정성공');
-				location.href="/jspweb/member/logout.jsp"; // 해당 페이지 이동 
+				//location.href="/jspweb/member/logout.jsp"; // 해당 페이지 이동 
 			}else{ alert('회원수정실패') }
 		}
 	})

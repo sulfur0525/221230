@@ -12,6 +12,8 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/commons-fileupload-1.5.jar"/>
+	<classpathentry kind="lib" path="C:/commons-io-2.11.0.jar"/>
 	<classpathentry kind="lib" path="C:/cos.jar"/>
 	<classpathentry kind="lib" path="C:/jackson-annotations.jar"/>
 	<classpathentry kind="lib" path="C:/jackson-core.jar"/>
@@ -19,7 +21,5 @@
 	<classpathentry kind="lib" path="C:/java-activation.jar"/>
 	<classpathentry kind="lib" path="C:/java-mail.jar"/>
 	<classpathentry kind="lib" path="C:/mysql-connector-java.jar"/>
-	<classpathentry kind="lib" path="C:/commons-fileupload-1.5.jar"/>
-	<classpathentry kind="lib" path="C:/commons-io-2.11.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
