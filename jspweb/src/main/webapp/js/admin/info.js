@@ -1,4 +1,32 @@
-3// js -> admin -> info.js
+const ctx = document.getElementById('myChart');
+$.get("/jspweb/point",(r)=>{
+	console.log(r)
+	console.log(Object.keys(r))
+	console.log(Object.values(r))
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: Object.keys(r),
+      datasets: [{
+        label: '# of Votes',
+        data: Object.values(r),
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+})
+
+
+
+
 
 console.log( 'js열림')
 

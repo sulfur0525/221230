@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -159,5 +160,23 @@ public class ProductDao extends Dao{
 			}
 		}catch (Exception e) { 	System.out.println(e); 	}  
 		return list;
+	}
+	
+	public HashMap<String,Integer> getSum() {
+		HashMap<String,Integer> map = new HashMap<>();
+		String sql = " select sum( if( mpcomment ='포인트 충전'  , mpamount , 0 ) ) as 충전된포인트총합계 , "
+				+ "date_format( mpdate , '%Y%m%d' ) as 충전날짜 from mpoint \r\n"
+				+ " group by date_format( mpdate , '%Y%m%d' ) order by 충전날짜 limit 5;";
+		
+		try {
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while (rs.next()) {
+				map.put(rs.getString(2), rs.getInt(1));
+			}
+			return map;
+		} catch (Exception e) {
+			System.out.println();
+		}return null;
 	}
 }

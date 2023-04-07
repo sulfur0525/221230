@@ -117,7 +117,7 @@ function printfiles(){
 					<span> ${ fname } </span>
 					<span> ${ fsize }KB </span>
 					<span> 
-						<button type="button" onclick="filedelete(${i})"> 
+						<button type="button" onclick="filedelete(${i})> 
 							삭제 
 						</button>
 					 </span> 

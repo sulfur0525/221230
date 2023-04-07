@@ -8,8 +8,13 @@
 </head>
 <body>
 	<%@ include file="/header.jsp" %>
+
 	<h3> 모든 회원 명단 </h3>
 	<div class="container">
+	
+		<div>
+		  <canvas id="myChart"></canvas>
+		</div>
 	
 		<button type="button" onclick="setsearch()">전체보기[검색제거]</button>
 		<div class="seachcount">총 회원 수 : </div>
@@ -39,6 +44,7 @@
 		</div>
 	</div>
 	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="/jspweb/js/admin/info.js" type="text/javascript"></script>
 	
 </body>
